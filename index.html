@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スタッフサイト｜リンク集｜ライフデンタルクリニック</title>
+<style>
+  :root{
+    --paper:#F6F3EC; --card:#FFFFFF; --soft:#F2ECEA;
+    --ink:#2B2A26; --ink-soft:#54574E; --muted:#7A7D72;
+    --green:#5E3A44; --sage:#9C5F6E; --sage-2:#C08E99; --line:#D8D2C4;
+    --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
+    line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+
+  .hero{padding:44px 0 24px;border-bottom:2px solid var(--green);}
+  .hero .kicker{font-size:11px;letter-spacing:.32em;color:var(--sage);font-weight:700;}
+  .hero h1{font-family:var(--mincho);font-size:27px;font-weight:600;letter-spacing:.05em;
+    line-height:1.4;margin:8px 0 6px;color:var(--green);}
+  .hero .sub{font-size:13px;color:var(--ink-soft);}
+  .hero .staffonly{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;
+    color:#fff;background:var(--sage);border-radius:4px;padding:3px 11px;letter-spacing:.06em;}
+
+  section{margin:34px 0;}
+  .sh{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);
+    padding-bottom:7px;margin-bottom:16px;}
+  .sh h2{font-family:var(--mincho);font-size:17px;font-weight:600;color:var(--green);letter-spacing:.03em;}
+  .sh .note{margin-left:auto;font-size:11px;color:var(--muted);}
+
+  .grid{display:grid;gap:11px;grid-template-columns:1fr;}
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr;}}
+
+  .link{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;
+    transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease;}
+  .link:hover{border-color:var(--sage-2);transform:translateY(-2px);
+    box-shadow:0 5px 16px rgba(94,58,68,.09);}
+  .link .body{flex:1;min-width:0;}
+  .link .t{font-size:14.5px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:8px;}
+  .link .d{font-size:12px;color:var(--ink-soft);line-height:1.6;margin-top:2px;}
+  .link .ar{flex:0 0 auto;width:18px;height:18px;color:var(--sage);}
+
+  .link.soon{pointer-events:none;background:var(--soft);border-style:dashed;}
+  .link.soon .t{color:var(--muted);}
+  .badge{font-size:10px;font-weight:700;border-radius:20px;padding:1px 8px;letter-spacing:.03em;}
+  .badge.ready{color:#fff;background:var(--sage);}
+  .badge.soon{color:var(--muted);background:#EDE6E4;border:1px solid var(--line);}
+  .badge.ext{color:var(--sage);background:#fff;border:1px solid var(--sage-2);}
+
+  .extnote{font-size:11.5px;color:var(--muted);margin-bottom:12px;}
+  .colornote{font-size:11px;color:var(--muted);margin-top:8px;}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 34px;text-align:center;}
+  footer img{width:104px;height:auto;margin:0 auto 11px;display:block;}
+  footer .fl{font-family:var(--mincho);font-size:13px;color:var(--green);letter-spacing:.05em;}
+  footer .ft{font-size:11.5px;color:var(--sage);margin-top:3px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">LIFE DENTAL CLINIC ｜ スタッフサイト</div>
+    <h1>スタッフサイト｜リンク集</h1>
+    <div class="sub">院内の運用フローと、コンサルで開く患者向けページへの入口。</div>
+    <div class="staffonly">スタッフ用ページ（患者さんにはお見せしません）</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 院内フロー -->
+  <section>
+    <div class="sh"><h2>院内フロー</h2><span class="note">運用の流れ</span></div>
+    <div class="grid">
+      <a class="link" href="flow-a-first-visit.html">
+        <span class="body">
+          <span class="t">初診起点フロー（A）<span class="badge ready">公開</span></span>
+          <span class="d">問診票 → 応急処置 → 簡易検査 → 補綴コンサル。誰が・どのページ・何と言うか。</span>
+        </span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <div class="link soon">
+        <span class="body">
+          <span class="t">既存患者フロー（B）<span class="badge soon">準備中</span></span>
+          <span class="d">方針確認 → 補綴コンサル（インレー等の保険／自費案内）。</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 患者サイト -->
+  <section>
+    <div class="sh"><h2>患者サイト（治療と費用のご案内）</h2><span class="note">コンサルで開く</span></div>
+    <p class="extnote">別サイト（<code style="font-family:ui-monospace,monospace;font-size:11px;">lifedesign-studio.github.io/dental/</code>）です。新しいタブで開きます。</p>
+    <div class="grid">
+      <a class="link" href="https://lifedesign-studio.github.io/dental/" target="_blank" rel="noopener">
+        <span class="body"><span class="t">トップ（治療一覧）<span class="badge ext">別サイト</span></span><span class="d">治療と費用のご案内・入口。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/oral-health.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">知っておきたいお話</span><span class="d">簡易検査③でコーディネーターが開く。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/inlay-crown.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">インレー・クラウン治療</span><span class="d">詰め物・被せ物の補綴コンサル。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/root-canal.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">根管治療</span><span class="d">保険／自費（精密根管）を治療開始前に。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/resin.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">レジン修復</span><span class="d">軽度のむし歯・保険／自費レジン。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/bridge.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">ブリッジ治療</span><span class="d">失った歯を両隣で支えて補う。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/denture.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">入れ歯（義歯）治療</span><span class="d">取り外しで噛む力を取り戻す。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/implant.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">インプラント治療</span><span class="d">あごの骨に土台を入れて補う。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/ortho.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">矯正治療</span><span class="d">歯並び・かみ合わせを整える。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="link" href="https://lifedesign-studio.github.io/dental/aesthetic.html" target="_blank" rel="noopener">
+        <span class="body"><span class="t">審美・ホワイトニング</span><span class="d">白さや形を自然に整える。</span></span>
+        <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <p class="colornote">※ 治療ページは移植（部位起点）でファイル名が変わる予定。変わったらこのリンクも更新する。</p>
+  </section>
+
+</div>
+
+<footer>
+  <img src="life-logo.png" alt="ライフデンタルクリニック" onerror="this.style.display='none'">
+  <div class="fl">ライフデンタルクリニック</div>
+  <div class="ft">いい歯で、いい人生を。</div>
+</footer>
+
+</body>
+</html>
