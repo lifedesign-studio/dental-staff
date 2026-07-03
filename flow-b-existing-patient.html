@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>既存患者フロー｜スタッフ用｜ライフデンタルクリニック</title>
+<style>
+  :root{
+    --paper:#F6F3EC; --card:#FFFFFF; --soft:#F2ECEA;
+    --ink:#2B2A26; --ink-soft:#54574E; --muted:#7A7D72;
+    --green:#5E3A44; --sage:#9C5F6E; --sage-2:#C08E99; --line:#D8D2C4;
+    --dr:#6E4450; --co:#A5654E; --dh:#5F8E86;
+    --warm:#F3E9DE; --warm-line:#D9B98A;
+    --exam:#F4EAEC; --exam-line:#D9B7BF;
+    --dan1:#7B93A3; --dan2:#9C5F6E; --dan3:#5E3A44;
+    --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
+    line-height:1.8;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  /* hero */
+  .hero{padding:44px 0 26px;border-bottom:2px solid var(--green);}
+  .hero .kicker{font-family:var(--gothic);font-size:11px;letter-spacing:.32em;
+    color:var(--sage);font-weight:700;}
+  .hero h1{font-family:var(--mincho);font-size:30px;font-weight:600;letter-spacing:.04em;
+    line-height:1.4;margin:8px 0 6px;color:var(--green);}
+  .hero .sub{font-size:13.5px;color:var(--ink-soft);}
+  .hero .staffonly{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;
+    color:#fff;background:var(--sage);border-radius:4px;padding:3px 11px;letter-spacing:.06em;}
+
+  /* 3 principles */
+  .principles{display:grid;gap:12px;grid-template-columns:1fr;margin:26px 0 8px;}
+  @media(min-width:720px){.principles{grid-template-columns:repeat(3,1fr);}}
+  .pr{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--green);
+    border-radius:12px;padding:16px 16px;}
+  .pr .n{font-family:var(--mincho);font-size:22px;color:var(--sage);line-height:1;}
+  .pr h3{font-size:14.5px;font-weight:700;margin:6px 0 4px;color:var(--green);}
+  .pr p{font-size:12.5px;color:var(--ink-soft);line-height:1.7;}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+    background:var(--soft);border-radius:10px;padding:12px 16px;margin:22px 0 4px;font-size:12px;}
+  .legend b{font-family:var(--mincho);font-size:12.5px;color:var(--green);margin-right:4px;}
+  .who{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);}
+  .dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto;}
+  .dot.dr{background:var(--dr);} .dot.co{background:var(--co);} .dot.dh{background:var(--dh);}
+
+  /* section */
+  section{margin:40px 0;}
+  .sh{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);
+    padding-bottom:8px;margin-bottom:20px;}
+  .sh .sn{font-family:var(--mincho);font-size:26px;color:var(--sage);line-height:1;}
+  .sh h2{font-family:var(--mincho);font-size:20px;font-weight:600;color:var(--green);letter-spacing:.03em;}
+  .sh .note{margin-left:auto;font-size:11.5px;color:var(--muted);}
+
+  /* role badge */
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;
+    border-radius:20px;padding:2px 10px;color:#fff;white-space:nowrap;}
+  .badge.dr{background:var(--dr);} .badge.co{background:var(--co);} .badge.dh{background:var(--dh);}
+  .badge.line{background:#fff;border:1px solid var(--line);color:var(--ink-soft);}
+
+  /* zone banner */
+  .zone{border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:13px;}
+  .zone.warm{background:var(--warm);border:1px solid var(--warm-line);}
+  .zone.exam{background:var(--exam);border:1px solid var(--exam-line);}
+  .zone .zt{font-family:var(--mincho);font-weight:600;color:var(--green);font-size:14px;
+    display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+  .zone .pill{font-size:10.5px;font-weight:700;color:#fff;background:var(--co);border-radius:20px;padding:1px 9px;letter-spacing:.04em;}
+  .zone .pill.exam{background:var(--sage);}
+
+  /* speech bubble */
+  .say{position:relative;background:var(--soft);border:1px solid var(--exam-line);
+    border-radius:12px;padding:12px 14px 12px 14px;margin:10px 0;}
+  .say::before{content:"";position:absolute;top:-8px;left:22px;width:14px;height:14px;
+    background:var(--soft);border-left:1px solid var(--exam-line);border-top:1px solid var(--exam-line);
+    transform:rotate(45deg);}
+  .say .lbl{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .say .lbl .who-name{font-size:11px;font-weight:700;color:var(--green);}
+  .say p{font-size:13px;color:var(--ink);line-height:1.85;}
+  .say .tag{font-size:10.5px;color:var(--co);font-weight:700;}
+
+  /* do / dont */
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+  .dd .col{border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.65;}
+  .dd .do{background:var(--exam);border:1px solid var(--exam-line);}
+  .dd .dont{background:#F5ECE6;border:1px solid var(--warm-line);}
+  .dd .col .h{font-weight:700;font-size:11.5px;margin-bottom:4px;}
+  .dd .do .h{color:var(--sage);} .dd .dont .h{color:var(--co);}
+
+  .pageref{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+    color:var(--green);background:#fff;border:1px solid var(--sage-2);border-radius:7px;
+    padding:3px 9px;margin-top:2px;font-family:var(--gothic);}
+  .pageref code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:var(--sage);}
+
+  /* stepper */
+  .stepper{position:relative;margin-left:6px;padding-left:26px;}
+  .stepper::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--exam-line);}
+  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:12px 15px;margin-bottom:12px;}
+  .step::before{content:attr(data-n);position:absolute;left:-26px;top:12px;width:20px;height:20px;
+    background:var(--sage);color:#fff;border-radius:50%;font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-family:var(--gothic);}
+  .step .top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:3px;}
+  .step .top .t{font-family:var(--mincho);font-size:14.5px;font-weight:600;color:var(--green);}
+  .step .top .time{font-size:11px;color:var(--muted);margin-left:auto;}
+  .step .d{font-size:12.5px;color:var(--ink-soft);line-height:1.7;}
+
+  /* branch */
+  .branch{display:grid;gap:12px;grid-template-columns:1fr;margin-top:6px;}
+  @media(min-width:820px){.branch{grid-template-columns:repeat(3,1fr);}}
+  .bcol{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;
+    display:flex;flex-direction:column;}
+  .bcol .bh{padding:11px 14px;color:#fff;}
+  .bcol.b1 .bh{background:var(--dan2);} .bcol.b2 .bh{background:var(--dan3);} .bcol.b3 .bh{background:var(--dan1);}
+  .bcol .bh .name{font-family:var(--mincho);font-size:15px;font-weight:600;}
+  .bcol .bh .tori{font-size:11px;opacity:.9;}
+  .bcol .bh .intern{font-size:10px;opacity:.82;margin-top:2px;letter-spacing:.02em;}
+  .bcol .bb{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:8px;}
+  .bcol .row{font-size:12px;color:var(--ink-soft);line-height:1.55;}
+  .bcol .row .k{font-weight:700;color:var(--green);font-size:11px;display:block;}
+  .keys{align-self:flex-start;font-size:10.5px;font-weight:700;border-radius:20px;padding:2px 9px;
+    background:var(--exam);color:var(--sage);border:1px solid var(--exam-line);}
+  .keys.hold{background:#F5ECE6;color:var(--co);border-color:var(--warm-line);}
+  .bcol .next{margin-top:auto;font-size:11.5px;font-weight:700;color:#fff;border-radius:8px;
+    padding:8px 10px;text-align:center;}
+  .bcol.b1 .next{background:var(--dan2);} .bcol.b2 .next{background:var(--dan3);} .bcol.b3 .next{background:var(--dan1);}
+
+  /* table */
+  .tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;font-size:12.5px;}
+  .tbl th,.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  .tbl th{background:var(--soft);font-family:var(--mincho);font-weight:600;color:var(--green);font-size:12px;}
+  .tbl tr:last-child td{border-bottom:none;}
+  .tbl code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--sage);}
+  .tbl .co-cell{color:var(--co);font-weight:700;}
+
+  /* overview map */
+  .map{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;}
+  .flowbox{border-radius:10px;padding:11px 14px;font-size:13px;line-height:1.6;margin:0 auto;max-width:580px;}
+  .flowbox .who-mini{font-size:10.5px;font-weight:700;letter-spacing:.03em;}
+  .fb-exam{background:var(--exam);border:1px solid var(--exam-line);}
+  .fb-plain{background:var(--soft);border:1px solid var(--line);}
+  .arrow{text-align:center;color:var(--sage);font-size:18px;line-height:1;margin:6px 0;}
+  .three{display:grid;grid-template-columns:1fr;gap:8px;max-width:580px;margin:0 auto;}
+  @media(min-width:640px){.three{grid-template-columns:repeat(3,1fr);}}
+  .tcell{border-radius:9px;padding:9px 10px;font-size:11.5px;line-height:1.5;color:#fff;text-align:center;}
+  .tcell.t1{background:var(--dan2);} .tcell.t2{background:var(--dan3);} .tcell.t3{background:var(--dan1);}
+  .exit{max-width:580px;margin:8px auto 0;text-align:center;background:var(--green);color:#fff;
+    border-radius:9px;padding:9px 10px;font-size:12.5px;font-weight:700;font-family:var(--mincho);}
+
+  .colornote{font-size:11px;color:var(--muted);margin-top:10px;}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 34px;text-align:center;}
+  footer img{width:104px;height:auto;margin:0 auto 11px;display:block;}
+  footer .fl{font-family:var(--mincho);font-size:13px;color:var(--green);letter-spacing:.05em;}
+  footer .ft{font-size:11.5px;color:var(--sage);margin-top:3px;}
+
+  @media print{
+    body{background:#fff;}
+    .step,.bcol,.pr,.tbl,.map{break-inside:avoid;}
+    section{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">LIFE DENTAL CLINIC ｜ スタッフサイト</div>
+    <h1>既存患者フロー｜メンテナンスの変化 → 方針確認 → 補綴コンサル</h1>
+    <div class="sub">通っていただいている方は、もう「知っておきたいお話」を済ませた関係。重い導線は再演せず、変わったところだけ確認して、必要な治療へ。</div>
+    <div class="staffonly">スタッフ用ページ（患者さんにはお見せしません）</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 3 principles -->
+  <div class="principles">
+    <div class="pr">
+      <div class="n">1</div>
+      <h3>フレーム先行は省く</h3>
+      <p>教育済み・信頼済みの関係。初診の「知っておきたいお話3枚」は再演しない。見つかったことは、そのまま所見として開示する（開示は無条件）。</p>
+    </div>
+    <div class="pr">
+      <div class="n">2</div>
+      <h3>方針は「差分」だけ確認</h3>
+      <p>カルテに通い方（今を整える／気になる歯を残す／全体で守る）がある。ゼロから聞き直さず、「前は◯◯と伺っていましたが、今も？」と変わったところだけ取る。</p>
+    </div>
+    <div class="pr">
+      <div class="n">3</div>
+      <h3>補綴コンサルはコーディネーターが</h3>
+      <p>インレー等の「○○のご案内」で、保険／自費・料金・15年保証・部位継承クレジットを説明。Drは前段で、その歯の根拠と保険/自費の二択を置いておく。</p>
+    </div>
+  </div>
+
+  <!-- legend -->
+  <div class="legend">
+    <b>担当の色</b>
+    <span class="who"><span class="dot dr"></span>Dr（ドクター）</span>
+    <span class="who"><span class="dot co"></span>コーディネーター</span>
+    <span class="who"><span class="dot dh"></span>DH（衛生士）</span>
+    <span style="margin-left:auto;color:var(--muted);">■ ばら色＝所見・方針確認の場面</span>
+  </div>
+
+  <!-- 1. メンテ起点の流れ -->
+  <section>
+    <div class="sh"><span class="sn">1</span><h2>メンテナンスから、方針確認まで</h2><span class="note">メンテ起点フロー</span></div>
+
+    <div class="stepper">
+      <div class="step" data-n="1">
+        <div class="top"><span class="badge dh">DH</span><span class="t">メンテナンス中</span><span class="time">定期のご来院</span></div>
+        <div class="d">単純接触で信頼を継続。相談しやすい空気を保つ（メインテナンスレーン）。</div>
+      </div>
+      <div class="step" data-n="2">
+        <div class="top"><span class="badge dh">DH</span><span class="t">変化を発見</span></div>
+        <div class="d">BOPの上昇・新しいむし歯・被せ物や詰め物の不適合・奥歯の支えの変化・欠損。気づいたら Dr へ橋渡し。</div>
+      </div>
+      <div class="step" data-n="3">
+        <div class="top"><span class="badge dr">Dr</span><span class="t">Drチェック・所見開示（無条件）</span></div>
+        <div class="d">見つかったことをそのままお見せする。<b>初診の「知っておきたいお話3枚」は省く</b>（教育済み・信頼済み＝Simplicity）。大臼歯支持🟢🟡🔴・下顎6番★も同じ用紙で。</div>
+      </div>
+      <div class="step" data-n="4">
+        <div class="top"><span class="badge dr">Dr</span><span class="t">方針（通い方）の差分確認</span></div>
+        <div class="d">履歴に方針がある。ゼロから聞かず、変わったところだけ取る。ここで方針が変われば、それが新しい「患者の鍵」になる。</div>
+        <div class="say" style="margin-top:10px;">
+          <div class="lbl"><span class="badge dr">Dr</span><span class="who-name">差分確認のトーク</span></div>
+          <p>「前は"今の困りごとから整えていく"と伺っていましたが、今もその感じで大丈夫ですか？ それとも、せっかくなので長く残す方向も考えてみたい、などありますか？」</p>
+        </div>
+      </div>
+      <div class="step" data-n="5">
+        <div class="top"><span class="badge dr">Dr</span><span class="t">二重の鍵ゲート</span></div>
+        <div class="d">臨床の鍵（設計に値する所見か）× 患者の鍵（本人が全体を望むか）で、下の3通りに分かれる。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 二重の鍵ゲート -->
+  <section>
+    <div class="sh"><span class="sn">2</span><h2>二重の鍵ゲート（補綴の深さの分岐）</h2></div>
+    <div class="branch">
+      <div class="bcol b1">
+        <div class="bh"><div class="name">単発で足りる</div><div class="tori">1本・1か所の補綴</div><div class="intern">部分治療レーン｜大多数</div></div>
+        <div class="bb">
+          <span class="keys">臨床＝単発／患者＝全体を望まない</span>
+          <div class="row"><span class="k">進み方</span>その歯を良い形で補う。全体設計は挟まない。</div>
+          <div class="next">→ 補綴コンサル（第3章）</div>
+        </div>
+      </div>
+      <div class="bcol b2">
+        <div class="bh"><div class="name">全体を診てほしい</div><div class="tori">1本に閉じない＋本人希望</div><div class="intern">包括治療レーン</div></div>
+        <div class="bb">
+          <span class="keys">臨床＝設計に値する／患者＝全体希望</span>
+          <div class="row"><span class="k">進み方</span>二つの鍵がそろう。順番から一緒に設計する。</div>
+          <div class="next">→ 全体設計コンサル60分</div>
+        </div>
+      </div>
+      <div class="bcol b3">
+        <div class="bh"><div class="name">深い所見・でも今はシンプル</div><div class="tori">開示はする・手は止める</div><div class="intern">エッジケース</div></div>
+        <div class="bb">
+          <span class="keys hold">臨床＝あり／患者の鍵＝なし</span>
+          <div class="row"><span class="k">進み方</span>押し込まない。<b>見つかったことは必ず伝える</b>。扉は開けておく。</div>
+          <div class="next">→ 開示のみ・経過／必要な単発</div>
+        </div>
+      </div>
+    </div>
+    <div class="say" style="max-width:none;margin-top:16px;background:#F5ECE6;border-color:var(--warm-line);">
+      <div class="lbl"><span class="badge dr">Dr</span><span class="who-name">エッジケースの台本（深い所見 × 最小の価値観）</span> <span class="tag">← 押し込まない</span></div>
+      <p>「今回はシンプルにと伺いました。その希望を大事にしたいです。だからこそ、見つかったことだけはお伝えします。奥歯の支えがこの状態で、放っておくとこう進みます。進め方を変えたくなったら、いつでも一緒に見直しましょう。」</p>
+    </div>
+    <p class="colornote">Drの深掘りは、いつも「患者さんの表明への応答」になる（＝誘導にならない・営業にならない）。色分け・段/型名はスタッフ用で、患者さんの前では使わない。</p>
+  </section>
+
+  <!-- 3. 補綴コンサル本体 -->
+  <section>
+    <div class="sh"><span class="sn">3</span><h2>補綴コンサル（例：インレーの作り直し）</h2></div>
+
+    <div class="zone exam">
+      <div class="zt">流れ <span class="pill exam">Drが根拠と二択 → コーディネーターが保険/自費</span></div>
+      Drがその歯の「なぜ・どう」と保険/自費の等価二択を置き、コーディネーターが「○○のご案内」で中身・費用を作り込む。役割の縫い目は動かさない。
+    </div>
+
+    <div class="say">
+      <div class="lbl"><span class="badge dr">Dr</span><span class="who-name">方針トーク（現状・根拠 → 等価二択 → 手段の言い切り）</span></div>
+      <p>「この詰め物（インレー）、境目にすき間が出てきていて、中で新しいむし歯が始まりやすい状態です。作り直します。<b>ここは噛む力が強くかかるので、境目のぴったりさ（適合）が、その後の持ちを大きく左右します</b>。作り方で二つあって、<b>今の負担を抑えたい</b>なら保険の詰め物、<b>長く持たせたい・すき間を抑えたい</b>ならぴったり作れるセラミック。<b>どちらも正しい選択です</b>。○○さんのお考えに合わせて、私が最善の作り方を組み立てます。詳しい中身と費用は、このあと〔コーディネーター〕から資料でご説明しますね。今日決めなくても大丈夫です。」</p>
+    </div>
+
+    <div class="say">
+      <div class="lbl"><span class="badge co">コーディネーター</span><span class="who-name">補綴コンサル（治療ページで作り込み）</span></div>
+      <p>「詰め物には、形（インレーで足りるか・被せ物が要るか）と素材の分かれ道があります。保険の詰め物と、自費のスタンダード／プレミアムで、持ちや見た目、費用がこう変わります。当院の自費は15年保証で、前の治療費は次に持ち越せます（部位継承クレジット）。分割や次回のご予約も、こちらでご一緒に。」</p>
+    </div>
+
+    <div class="dd">
+      <div class="col do"><div class="h">コーディネーターが担う</div>保険/自費・素材・料金の中身／総額の確定・2回分割／15年保証／部位継承クレジット／予約</div>
+      <div class="col dont"><div class="h">Drが担う（コーディネーターに渡さない）</div>臨床の意味・なぜこの歯か・2つの進め方で何が変わるか・価格帯（根拠と一体）・手段の言い切り</div>
+    </div>
+
+    <div style="margin-top:14px;">
+      <span class="pageref"><span class="badge co" style="font-size:9px;padding:1px 7px;">コーディ</span> 詰め物・被せ物 → <code>inlay-crown.html</code></span>
+    </div>
+    <p class="colornote">その歯が根の治療なら <code>root-canal.html</code>、失った歯を補うなら <code>bridge / denture / implant</code>、前歯の見た目なら <code>aesthetic.html</code>（第4章の対応表）。全体設計へ振れた場合は「包括治療のご案内」＋全体設計コンサルへ。</p>
+  </section>
+
+  <!-- 4. page mapping -->
+  <section>
+    <div class="sh"><span class="sn">4</span><h2>見つかった状態 → 開くページ → 説明する人</h2></div>
+    <table class="tbl">
+      <tr><th>見つかった状態</th><th>現行ページ</th><th>移植後（部位起点）</th><th>説明する人</th></tr>
+      <tr><td>詰め物・被せ物の不適合／二次う蝕</td><td><code>inlay-crown.html</code></td><td>各部位「治す・守る（詰める・被せる）」</td><td class="co-cell">コーディネーター</td></tr>
+      <tr><td>軽度のむし歯</td><td><code>resin.html</code></td><td>各部位「治す・守る（詰める）」</td><td class="co-cell">コーディネーター</td></tr>
+      <tr><td>根の問題（再感染など）</td><td><code>root-canal.html</code></td><td>各部位「治す・守る（根の治療）」</td><td class="co-cell">コーディネーター</td></tr>
+      <tr><td>欠損（抜歯後・喪失）</td><td><code>bridge / denture / implant</code></td><td>各部位「補う」</td><td class="co-cell">コーディネーター</td></tr>
+      <tr><td>見た目・前歯審美</td><td><code>aesthetic.html</code></td><td>同じ</td><td class="co-cell">コーディネーター</td></tr>
+      <tr><td>全体（咬合・複数歯・支えの崩れ）</td><td><code>ortho.html</code></td><td><code>comprehensive.html</code></td><td>Dr＋コーディネーター｜全体設計</td></tr>
+    </table>
+    <p class="colornote">※ ページは患者向けサイト（<code>lifedesign-studio.github.io/dental/</code>）のもの。このスタッフサイトからは<b>絶対URLのリンク</b>で開く。</p>
+  </section>
+
+  <!-- overview map -->
+  <section>
+    <div class="sh"><span class="sn">◎</span><h2>全体の一枚図</h2></div>
+    <div class="map">
+      <div class="flowbox fb-plain"><span class="who-mini" style="color:var(--dh);">DH</span>　メンテナンス中 → 変化を発見（不適合・う蝕・支えの変化・欠損）</div>
+      <div class="arrow">▼</div>
+      <div class="flowbox fb-exam"><span class="who-mini" style="color:var(--dr);">Dr</span>　所見開示（無条件・フレーム先行は省く）＋ 方針の差分確認<br>「前は◯◯と伺っていましたが、今も？」</div>
+      <div class="arrow">▼　<span style="font-size:11px;color:var(--muted);">二重の鍵ゲート</span></div>
+      <div class="three">
+        <div class="tcell t1">単発で足りる<br>→ 補綴コンサル</div>
+        <div class="tcell t2">全体を診てほしい<br>→ 全体設計コンサル</div>
+        <div class="tcell t3">深い所見・今はシンプル<br>→ 開示のみ・経過</div>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="exit">出口はいつもメインテナンス復帰</div>
+    </div>
+    <p class="colornote">痛みで来られた既存の方（痛み起点）は、まず主訴を解決し、落ち着いた別日にこの流れへ合流させる（費用・大きな治療はその場で出さない）。</p>
+  </section>
+
+</div>
+
+<footer>
+  <img src="life-logo.png" alt="ライフデンタルクリニック" onerror="this.style.display='none'">
+  <div class="fl">ライフデンタルクリニック</div>
+  <div class="ft">いい歯で、いい人生を。</div>
+</footer>
+
+</body>
+</html>
