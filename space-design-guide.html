@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診療空間デザイン｜五感・安全ガイド（スタッフ用）</title>
+<style>
+:root{
+  --paper:#F6F3EC; --ink:#2B2A26;
+  --rose:#5E3A44; --rose-mid:#9C5F6E; --rose-light:#C08E99;
+  --tint:#F4EAEC; --line:#D8D2C4; --line-rose:#D9B7BF;
+  --soft:#7A6A6E;
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --gothic:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--gothic);
+  line-height:1.8;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 60px;}
+header.top{border-bottom:2px solid var(--rose);padding-bottom:14px;margin-bottom:26px;}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:var(--rose-mid);margin:0 0 8px;}
+h1{font-family:var(--serif);font-size:26px;letter-spacing:.08em;margin:0 0 6px;color:var(--ink);font-weight:600;}
+.sub{font-size:12px;color:var(--soft);margin:0;}
+.badge{display:inline-block;font-size:10.5px;letter-spacing:.14em;color:var(--rose);
+  border:1px solid var(--line-rose);border-radius:2px;padding:2px 8px;margin-top:8px;background:var(--tint);}
+h2{font-family:var(--serif);font-size:19px;letter-spacing:.06em;margin:40px 0 4px;color:var(--rose);font-weight:600;
+  display:flex;align-items:baseline;gap:10px;}
+h2 .n{font-size:14px;color:var(--rose-mid);letter-spacing:.05em;}
+h3{font-family:var(--serif);font-size:15.5px;margin:22px 0 8px;color:var(--ink);font-weight:600;letter-spacing:.04em;
+  border-left:3px solid var(--rose-mid);padding-left:10px;}
+p{margin:8px 0;font-size:13.5px;}
+.lead{font-size:13.5px;color:var(--ink);}
+.note{font-size:12px;color:var(--soft);background:var(--tint);border-left:2px solid var(--rose-light);
+  padding:8px 12px;margin:10px 0;}
+.core{background:var(--tint);border:1px solid var(--line-rose);padding:16px 18px;margin:14px 0;text-align:center;}
+.core .big{font-family:var(--serif);font-size:17px;letter-spacing:.1em;color:var(--rose);font-weight:600;margin:0;}
+.core .small{font-size:11.5px;color:var(--soft);margin:6px 0 0;}
+.order{font-family:var(--serif);font-size:16px;letter-spacing:.12em;color:var(--rose);text-align:center;
+  border:1.5px solid var(--rose);padding:10px;margin:12px 0;background:#fff;font-weight:600;}
+ul{margin:6px 0 10px;padding-left:20px;}
+li{font-size:13px;margin:4px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:12.5px;background:#fff;}
+th{background:var(--tint);color:var(--rose);font-weight:600;text-align:left;padding:7px 10px;
+  border:1px solid var(--line);font-size:12px;letter-spacing:.04em;white-space:nowrap;}
+td{padding:7px 10px;border:1px solid var(--line);vertical-align:top;}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--rose-mid);
+  padding:14px 16px;margin:12px 0;}
+.card h4{font-family:var(--serif);font-size:14.5px;margin:0 0 6px;color:var(--rose);letter-spacing:.05em;font-weight:600;}
+.card .tag{display:inline-block;font-size:10px;letter-spacing:.1em;color:#fff;background:var(--rose-mid);
+  border-radius:2px;padding:1px 7px;margin-right:6px;vertical-align:middle;}
+.label{font-size:11px;letter-spacing:.12em;color:var(--rose-mid);font-weight:600;margin:8px 0 2px;}
+.safe{border-top-color:var(--rose);}
+.safe .label.s{color:var(--rose);}
+.zone{font-family:var(--serif);font-size:16px;color:#fff;background:var(--rose);letter-spacing:.14em;
+  padding:6px 14px;margin:26px 0 4px;display:inline-block;font-weight:600;}
+.q{counter-reset:q;}
+.q li{list-style:none;counter-increment:q;position:relative;padding-left:30px;margin:8px 0;}
+.q li::before{content:counter(q);position:absolute;left:0;top:0;width:20px;height:20px;
+  background:var(--rose);color:#fff;border-radius:50%;font-size:11px;display:flex;
+  align-items:center;justify-content:center;font-family:var(--gothic);}
+footer{margin-top:50px;border-top:1.5px solid var(--rose);padding-top:12px;
+  font-size:11px;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+footer .motto{font-family:var(--serif);color:var(--rose);letter-spacing:.1em;}
+@media(max-width:560px){h1{font-size:21px;}table{font-size:11.5px;}th,td{padding:5px 6px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">STAFF GUIDE｜スタッフ向け</p>
+  <h1>診療空間デザイン｜五感・安全ガイド</h1>
+  <p class="sub">基盤メモ確定版 v1.0（2026年7月23日確定）準拠｜正本：基盤メモ本文・4P統合基盤メモ 2-13</p>
+  <span class="badge">院内用・患者さんには見せない</span>
+</header>
+
+<p class="lead">このページは、当院の空間を「なぜこう整えるのか」「毎日なにをするのか」をスタッフが確認するための要約です。空間は、理念が<strong>言葉より先に患者さんに届く媒体</strong>。だから演出ではなく、診療の実態がにじみ出た「整い」を、全員の手入れと所作で保ちます。</p>
+
+<h2><span class="n">1</span>なぜ空間が「腕」の評価を決めるのか</h2>
+<p>まず、いちばん大事な心理の話から始めます。</p>
+<p><strong>患者さんは、治療の腕を直接評価できません。</strong>切削の精度も、診断の正しさも、滅菌の質も、患者さんには見えない。では何で医院を判断しているか——<strong>自分の五感で確かめられる手がかり</strong>です。待合の清潔感、床の一枚の汚れ、棚の乱れ、スタッフの声と所作。人は、目立つ一つの印象で全体を推し量ります。心理学でいう<strong>ハロー効果</strong>です。</p>
+<div class="core">
+  <p class="big">「きれいなクリニック」＝「治療も丁寧そう」<br>「汚れたクリニック」＝「見えないところも雑かも」</p>
+  <p class="small">実際の腕とは無関係に、患者さんの中ではこう結びつきます。</p>
+</div>
+<ul>
+  <li>整った空間は「滅菌もきちんとしていそう」「この先生なら任せられそう」へ波及し、<strong>治療そのものへの信頼</strong>になります。安心は緊張をゆるめ、痛みの感じ方や説明の受け取り方まで良い方向に働きます。</li>
+  <li>逆に、色あせた掲示・ほこりの残る隅・乱れたカウンターが一つあるだけで、「見えない滅菌や技工も雑なのでは」と<strong>Drの腕の評価まで下がります</strong>。不安は痛みを増幅させ、説明も疑いから聞かれてしまいます。</li>
+  <li>つまり——<strong>歯科助手が拭くチェアの一枚、受付が整えるカウンター、DHが戻す器具の定位置が、そのまま「治療の腕」の評価をつくっています。</strong>整理整頓は雑務ではなく、診療の信頼をつくる医療の一部。全員が「腕」の一部を担っています。</li>
+</ul>
+<p class="note"><strong>大切な歯止め：</strong>この心理を「見た目だけ良く見せる」ために使うのは操作であり、当院の患者Philosophyに反します。当院がやるのは順方向の運用——<strong>実態をきちんと整え、それが自然に伝わる状態にする</strong>こと。だから患者さんに見えないバックヤードも同じ水準で整えます。見える場所だけの整いは、いつか必ず実態とのズレとして伝わります。</p>
+
+<h2><span class="n">2</span>目的と優先順位</h2>
+<div class="core">
+  <p class="big">安全が守られ、不安が下がり、呼吸が整う空間をつくる。</p>
+  <p class="small">いつ来ても、どこを見ても、整っている。</p>
+</div>
+<p>空間の判断が衝突したら、必ずこの序列で決めます。</p>
+<div class="order">安全 ＞ 清潔 ＞ 静けさ・落ち着き ＞ 美しさ・季節感</div>
+<ul>
+  <li>飾りが避難経路・動線を妨げるなら、飾りを外す。</li>
+  <li>落ち着いた照明が段差の視認を妨げるなら、照度を上げる。</li>
+  <li>救急物品（AED・救急カート）は「隠す収納」の対象外。全員が位置を即答できること。</li>
+</ul>
+
+<h3>5つの基本姿勢</h3>
+<ul>
+  <li><strong>足すより引く</strong>：良い香りを足すのではなく、不快な匂いを消す。BGMを聴かせるのではなく、耳障りな音を減らす。</li>
+  <li><strong>強い刺激を使わない</strong>：強い芳香剤・大音量・派手な掲示は採用しない。</li>
+  <li><strong>実態を伴う整い</strong>：清潔の見せ方は誠実に。誇張した「アピール」はしない。</li>
+  <li><strong>ピークとエンドを設計する</strong>：処置中の不快を減らし、帰り際の体験（会計・見送り）を丁寧に。</li>
+  <li><strong>手入れが空間をつくる</strong>：破損・汚れは即時報告→即時更新。放置しない。</li>
+</ul>
+
+<h3>バックヤードの原則</h3>
+<p>患者さんから見えない場所（消毒室・技工室・スタッフルーム・院長室）にも同じ水準を適用します。理由は3つ。①見える場所だけの整いは演出になる。②滅菌・針刺し・情報管理など安全の核心はバックヤードで決まる。③スタッフルームで休めることが、患者さんの前の「呼吸の整った静けさ」の源になる。</p>
+
+<h3>参照ブランド（イメージ共有用の比喩）</h3>
+<table>
+  <tr><th>ブランド</th><th>参照する側面</th></tr>
+  <tr><td>とらや（北極星）</td><td>高価だが煽らない。凛として媚びない。季節の設え・手入れ・客との対等</td></tr>
+  <tr><td>中川政七商店</td><td>生成り・木質・書体・余白＝視覚のトーンと言葉の品位</td></tr>
+  <tr><td>一保堂茶舗</td><td>違いを丁寧に教えて選ばせる接客＝「説明は医療の一部」の原型</td></tr>
+  <tr><td>Aesop</td><td>一人に時間をかける静かな所作。※香りの強さは当院と逆方向</td></tr>
+  <tr><td>無印良品</td><td>引き算と定位置管理。※匿名的な簡素さは当院と違う</td></tr>
+</table>
+<p class="note">あえて違うもの：スターバックス（賑わい・カジュアル）、高級メゾン（敷居・権威）、リゾートホテル路線。研修では「似ている点」と同じ比重で「当院と違う点」を言語化します。目指すのは模倣ではなく翻訳です。</p>
+
+<h2><span class="n">3</span>五感別の基準（全エリア共通）</h2>
+
+<div class="card">
+  <h4>視覚</h4>
+  <p class="label">到達水準</p>
+  <ul>
+    <li>深緑・濃紺・チャコール・生成り・木質の基調。電球色＋自然光。</li>
+    <li>機材・段ボール・私物は患者さんの視界に置かない。掲示は医院の言葉づかいで統一（メーカーポスターは貼らない）。</li>
+    <li>破損・汚れ・色あせは即時更新。季節の設えは控えめに入れ替え。</li>
+  </ul>
+  <p class="label s">安全</p>
+  <ul><li>段差・床の切り替わりは視認性を確保。避難経路表示は落ち着きより視認性優先。濡れた床は放置しない。通路に物を置かない。</li></ul>
+</div>
+
+<div class="card">
+  <h4>聴覚</h4>
+  <p class="label">到達水準</p>
+  <ul>
+    <li>BGMは静かなクラシック・ジャズ・自然音。処置音を消すための大音量にしない。</li>
+    <li>走らない・声を張らない。金属トレー・扉・器具の音を立てない所作。</li>
+    <li>診療室・コンサルルームの会話と処置音は外に漏らさない。</li>
+  </ul>
+  <p class="label s">安全（プライバシー）</p>
+  <ul><li>待合・受付で病状・費用・個人情報を他の患者さんに聞こえる声で話さない。呼び出しは名前のみ。電話の復唱は待合に聞こえない位置・音量で。</li></ul>
+</div>
+
+<div class="card">
+  <h4>嗅覚</h4>
+  <p class="label">到達水準</p>
+  <ul>
+    <li>目指すのは「無臭に近い清潔」。強い芳香剤は使わない。</li>
+    <li>薬品臭・切削臭は換気・口腔外バキューム・清掃で発生源から抑える。匂いは上書きせず、残さない。</li>
+    <li>スタッフの香水・強い柔軟剤は控える。</li>
+  </ul>
+  <p class="label s">安全</p>
+  <ul><li>薬品の匂いの急な変化（漏れ・こぼれのサイン）は放置せず報告。換気は感染対策としても管理。</li></ul>
+</div>
+
+<div class="card">
+  <h4>味覚</h4>
+  <p class="label">到達水準</p>
+  <ul>
+    <li>味の強い薬剤は事前に予告（「少し苦い味がします」）。うがい水の温度に配慮。</li>
+    <li>最後のうがい・拭き取りを丁寧に、<strong>口の中がすっきりした状態</strong>で診療を終える（帰り際の記憶をつくる）。</li>
+  </ul>
+  <p class="label s">安全</p>
+  <ul><li>味覚の異常の訴えは安全情報。その場で手を止めて確認。</li></ul>
+</div>
+
+<div class="card">
+  <h4>体感覚</h4>
+  <p class="label">到達水準＝「予告」と「配慮」</p>
+  <ul>
+    <li>チェアを倒す・水・風・振動の前に必ず一言（「倒しますね」「少しお水が出ます」「響く感じがあります」）。</li>
+    <li>膝掛け・空調の体感確認。タオル・エプロンは清潔と肌触りの両方を管理。</li>
+    <li>「痛かったら左手を挙げてください」を全員共通で。長時間処置は途中の休憩・うがいの声かけ。</li>
+  </ul>
+  <p class="label s">安全</p>
+  <ul><li>高齢の方・妊婦さん・車椅子の方には必ず介助を申し出る。立ち上がりのふらつきに注意し、急がせない。</li></ul>
+</div>
+
+<h2><span class="n">4</span>エリア別の要点</h2>
+<p>院内は3つのゾーンで考えます。<strong>A＝不安を下げる／B＝予告と配慮／C＝実態と安全</strong>。</p>
+
+<div class="zone">A｜患者ゾーン</div>
+<div class="card">
+  <h4>駐車場・外構・玄関</h4>
+  <p>外の喧騒から医院の落ち着きへの「切り替わり」。植栽の手入れ・遮音・湿気臭を残さない。</p>
+  <p class="label s">安全</p><ul><li>雨天の床の濡れ即時対応／子どもの飛び出しを前提にした見通し／車椅子・ベビーカーの段差。</li></ul>
+</div>
+<div class="card">
+  <h4>待合室</h4>
+  <p>不安を下げ、呼吸を整える場。自然光・花・雑誌の選定・掲示の統一。診療音と薬品臭を流さない。</p>
+  <p class="label s">安全</p><ul><li>通路に物を置かない／キッズスペースの誤飲・転倒管理／具合の悪そうな方に気づける見通し／他の患者さんの前で病状の話をしない。</li></ul>
+</div>
+<div class="card">
+  <h4>受付</h4>
+  <p>第一声と最後の一声。カウンター上に書類・私物を置かない。慌ただしさを見せない。受け渡しは両手で丁寧に。</p>
+  <p class="label s">安全</p><ul><li>予約表・カルテ・画面を患者さんの視界に置かない。離席時は画面ロック。金額の大きい話は場所を移す。</li></ul>
+</div>
+<div class="card">
+  <h4>パウダールーム・トイレ</h4>
+  <p>「見えないところもきちんとしている」と判断される場所。換気優先・補充切れゼロ。</p>
+  <p class="label s">安全</p><ul><li>床の濡れは院内最大の転倒リスク。即時対応。手すり・立ち座りへの配慮。</li></ul>
+</div>
+
+<div class="zone">B｜診療ゾーン</div>
+<div class="card">
+  <h4>コンサルルーム</h4>
+  <p>落ち着いて理解し、考え、選ぶための場。机上は説明に使う資料のみ。90度の配席で圧迫感なく。</p>
+  <p class="label s">安全</p><ul><li>遮音・視線遮断を最優先／前の患者さんの資料・画面を残さない（前後リセット）／持ち帰りやすい雰囲気を保つ（その場で決めさせない）。</li></ul>
+</div>
+<div class="card">
+  <h4>診療室・ユニット</h4>
+  <p>五感設計の効果が最も大きい場所。器具・ガーゼを不用意に視界に置かない。無影灯を目に当てない。天井の汚れも点検。予告の定型を全員で。</p>
+  <p class="label s">安全</p><ul><li>氏名確認（取り違え防止）／鋭利物の受け渡しルール／誤飲・誤嚥防止／患者さんごとのリセット／救急物品への最短アクセス。</li></ul>
+</div>
+<div class="card">
+  <h4>レントゲン室</h4>
+  <p>「よく分からない機械に一人」の不安の場。入室から退室まで声かけの定型で（「機械が回ります」「すぐ戻ります」）。触れる前に一言。</p>
+  <p class="label s">安全</p><ul><li>放射線管理（法令）が全てに優先／撮影前の確認＝氏名・妊娠の可能性（配慮した聞き方）・金属／預かり品の紛失防止／立位のふらつき注意。</li></ul>
+</div>
+
+<div class="zone">C｜バックヤード</div>
+<div class="card">
+  <h4>消毒室（洗浄・滅菌）</h4>
+  <p>医院の安全の心臓部。汚染→洗浄→滅菌→保管の一方向動線。滅菌済み・未滅菌が一目で分かる表示。</p>
+  <p class="label s">安全</p><ul><li>ゾーニングの交差を許さない／PPE着用基準／針刺し防止と発生時フロー／滅菌器の点検・記録／薬液の表示・換気。</li></ul>
+</div>
+<div class="card">
+  <h4>技工室</h4>
+  <p>粉塵・火気・騒音が集中する場所。音と匂いを診療エリアに漏らさない。</p>
+  <p class="label s">安全</p><ul><li>集塵・換気／退室時の火元・電源確認／技工物の患者名・部位表示で取り違え防止。</li></ul>
+</div>
+<div class="card">
+  <h4>スタッフルーム</h4>
+  <p>呼吸を取り戻す場。ここで休めることが患者さんの前の静けさをつくる。食事の匂い・会話を院内に漏らさない。</p>
+  <p class="label s">安全</p><ul><li>患者さんの資料・端末を持ち込んで放置しない。守秘は場所を問わない。貴重品は施錠保管。</li></ul>
+</div>
+<div class="card">
+  <h4>院長室</h4>
+  <p>「見えない場所も整える」の模範。面談のプライバシー（在室表示・ノック）。</p>
+  <p class="label s">安全</p><ul><li>人事・給与・経営・患者情報の施錠・アクセス管理。重要書類の定位置化。</li></ul>
+</div>
+
+<h2><span class="n">5</span>毎日やること</h2>
+<h3>開院前｜五感チェック</h3>
+<table>
+  <tr><th>感覚</th><th>点検すること</th></tr>
+  <tr><td>視覚</td><td>照明／玄関〜待合〜トイレの整頓／掲示の乱れ／花・設えの状態／床の汚れ</td></tr>
+  <tr><td>聴覚</td><td>BGMの選択と音量／機器・空調の異音</td></tr>
+  <tr><td>嗅覚</td><td>玄関・待合・トイレ・診療室の匂い／換気の作動</td></tr>
+  <tr><td>体感覚</td><td>室温／チェア・タオルの状態／床の濡れ・滑り</td></tr>
+  <tr><td>安全</td><td>通路の障害物／救急物品の定位置／段差表示／消毒室・技工室の前日リセット</td></tr>
+</table>
+<h3>いつでも</h3>
+<ul>
+  <li>破損・汚れ・色あせを見つけたら「即時報告→即時更新」。気づいた人が直す＋担当の仕組みの両輪。</li>
+  <li>匂い・音・温度について患者さんから指摘があったら、受け止めて必ず報告する。</li>
+  <li>終業時：翌日準備＋火元・電源・施錠の確認（既存の終業チェックに統合）。</li>
+</ul>
+
+<h2><span class="n">6</span>判断に迷ったら</h2>
+<ul class="q">
+  <li>安全＞清潔＞静けさ＞美しさ の順番を守っているか。</li>
+  <li>患者さんの不安を下げるか。「足す」より「引く」になっているか。</li>
+  <li>見せ方が実態と離れていないか。見えない場所も同じ水準か。</li>
+  <li>邸宅の落ち着きと、医療機関の清潔・誠実・凛の両立か。</li>
+  <li>頑張りではなく、毎日無理なく続く仕組みか。</li>
+  <li>処置中の不快と、帰り際の体験を良くしているか。</li>
+  <li>そのエリアの最優先の安全項目を後回しにしていないか。</li>
+  <li>手入れの継続まで含めて考えたか。</li>
+</ul>
+
+<footer>
+  <span>正本：診療空間デザイン基盤メモ 確定版 v1.0／4P統合基盤メモ 2-13</span>
+  <span class="motto">いい歯で、いい人生を。</span>
+</footer>
+
+</div>
+</body>
+</html>
