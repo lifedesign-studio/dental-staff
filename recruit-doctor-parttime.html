@@ -49,7 +49,7 @@ h2 small{display:block;font-family:var(--sans);font-size:13px;font-weight:500;co
 .hero h1{font-size:clamp(28px,4.6vw,40px);line-height:1.45;margin:18px 0 22px;letter-spacing:.03em}
 .hero .lead{font-size:15.5px}
 .portrait{margin:0}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:52% 35%;background:var(--mist)}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;background:var(--mist)}
 .portrait figcaption{font-size:12.5px;color:var(--sub);margin-top:10px}
 .portrait figcaption b{font-family:var(--serif);font-size:15px;color:var(--navy);font-weight:600;margin-right:8px}
 .terms{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule)}
@@ -123,6 +123,48 @@ h2 small{display:block;font-family:var(--sans);font-size:13px;font-weight:500;co
 .equip ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .equip li{background:var(--mist);color:var(--navy);font-size:13.5px;padding:6px 14px;border-radius:3px;font-weight:500}
 
+
+/* ── numbers (infographic) ── */
+.numbers{background:var(--card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:80px 0}
+.numbers + section,.dayband + section{padding-top:80px}
+.kpis{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--navy)}
+@media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{padding:18px 14px 18px 0;border-bottom:1px solid var(--rule)}
+.kpi .n{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:clamp(30px,5vw,40px);line-height:1.2}
+.kpi .n small{font-size:.42em;font-weight:600;margin-left:2px}
+.kpi p{font-size:13px;color:var(--sub);line-height:1.6;margin-top:4px}
+.charts{margin-top:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+@media(max-width:760px){.charts{grid-template-columns:1fr;gap:40px}}
+.charts h3{font-size:16px;margin-bottom:4px}
+.charts .cap{font-size:13px;color:var(--sub);margin-bottom:14px}
+.ages{list-style:none}
+.ages li{display:grid;grid-template-columns:5.6em 1fr 3em;white-space:nowrap;gap:10px;align-items:center;font-size:13px;padding:3px 0}
+.ages .lbl{color:var(--sub)}
+.ages .track{height:14px;background:var(--mist);border-radius:2px;overflow:hidden}
+.ages .fill{display:block;height:100%;background:var(--mist-rule)}
+.ages li.peak .fill{background:var(--navy)}
+.ages .pct{font-family:var(--serif);font-weight:600;color:var(--ink);text-align:right}
+.ages-note{margin-top:12px;font-size:13px;color:#40444b}
+.ages-note b{color:var(--navy)}
+.ring-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ring{text-align:center}
+.ring svg{width:120px;height:120px;display:block;margin:0 auto}
+.ring .rv{font-family:var(--serif);font-weight:700;fill:var(--navy);font-size:24px}
+.ring p{font-size:13px;color:#40444b;margin-top:8px;line-height:1.6}
+.split{margin-top:26px}
+.split .bar{display:flex;height:16px;border-radius:2px;overflow:hidden}
+.split .f{background:var(--navy)} .split .m{background:var(--mist-rule)}
+.split .lg{display:flex;justify-content:space-between;font-size:13px;color:var(--sub);margin-top:6px}
+.source{margin-top:30px;font-size:12px;color:var(--sub)}
+
+/* ── gallery ── */
+.gallery{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:8px}
+.gallery figure{margin:0;position:relative;overflow:hidden;background:var(--mist)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:0;bottom:0;padding:6px 10px;background:rgba(38,41,46,.72);color:#fff;font-size:12px;line-height:1.5}
+.gallery .wide{grid-column:span 2}
+.gallery .big{grid-column:span 2;grid-row:span 2}
+@media(max-width:720px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}.gallery .big{grid-row:span 2}}
 /* ── salary ── */
 .formula{margin:32px 0 0;background:var(--card);border:1px solid var(--rule);padding:30px 22px;text-align:center}
 .formula .f-label{font-size:13px;color:var(--sub);margin-bottom:12px}
@@ -214,7 +256,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
       </div>
     </div>
     <figure class="portrait">
-      <img src="fuse-photo2022.jpg" alt="院長 富施博介">
+      <img src="recruit-img/director.jpg" alt="院長 富施博介" width="933" height="1400">
       <figcaption><b>富施 博介</b>院長／SJCD東京支部 理事</figcaption>
     </figure>
   </div>
@@ -269,6 +311,55 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
   </div>
 </section>
 
+<section class="numbers">
+  <div class="wrap">
+    <h2><small>数字で見るライフデンタル</small>親子で長く通う、地域のかかりつけ医です</h2>
+    <p class="lead">どんな患者さんを担当するのかは、働く先生にとって大切な情報です。この1年に来院された方を集計しました。</p>
+    <div class="kpis">
+      <div class="kpi"><p class="n">1,548<small>人</small></p><p>この1年に来院した患者さん</p></div>
+      <div class="kpi"><p class="n">5.6<small>回</small></p><p>1人あたりの年間来院回数</p></div>
+      <div class="kpi"><p class="n">2007<small>年</small></p><p>開業。地域で19年目</p></div>
+      <div class="kpi"><p class="n">60<small>分</small></p><p>初めての方の全体チェック</p></div>
+    </div>
+    <div class="charts">
+      <div>
+        <h3>患者さんの年代</h3>
+        <p class="cap">年代別の割合</p>
+        <ul class="ages">
+          <li><span class="lbl">0〜6歳</span><span class="track"><span class="fill" style="width:25%"></span></span><span class="pct">5%</span></li>
+          <li class="peak"><span class="lbl">7〜15歳</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="pct">17%</span></li>
+          <li><span class="lbl">16〜29歳</span><span class="track"><span class="fill" style="width:55%"></span></span><span class="pct">11%</span></li>
+          <li><span class="lbl">30代</span><span class="track"><span class="fill" style="width:55%"></span></span><span class="pct">11%</span></li>
+          <li class="peak"><span class="lbl">40代</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="pct">20%</span></li>
+          <li class="peak"><span class="lbl">50代</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="pct">16%</span></li>
+          <li><span class="lbl">60代</span><span class="track"><span class="fill" style="width:45%"></span></span><span class="pct">9%</span></li>
+          <li><span class="lbl">70歳以上</span><span class="track"><span class="fill" style="width:55%"></span></span><span class="pct">11%</span></li>
+        </ul>
+        <p class="ages-note">山は2つ。<b>小中学生</b>と<b>40〜50代の親世代</b>です。小児から高齢の方まで、幅広い年代を診られます。</p>
+      </div>
+      <div>
+        <h3>続けて通う患者さん</h3>
+        <p class="cap">この1年に来院した方のうち</p>
+        <div class="ring-row">
+          <div class="ring">
+            <svg viewBox="0 0 120 120" role="img" aria-label="87%"><circle cx="60" cy="60" r="50" fill="none" stroke="#E6EAEF" stroke-width="12"/><circle cx="60" cy="60" r="50" fill="none" stroke="#2E3A4E" stroke-width="12" stroke-dasharray="273.3 314.2" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle" class="rv">87%</text></svg>
+            <p>メインテナンスを受けた方</p>
+          </div>
+          <div class="ring">
+            <svg viewBox="0 0 120 120" role="img" aria-label="81%"><circle cx="60" cy="60" r="50" fill="none" stroke="#E6EAEF" stroke-width="12"/><circle cx="60" cy="60" r="50" fill="none" stroke="#A98E63" stroke-width="12" stroke-dasharray="254.5 314.2" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle" class="rv">81%</text></svg>
+            <p>15歳以下のうち、家族も通っている子</p>
+          </div>
+        </div>
+        <div class="split">
+          <div class="bar"><span class="f" style="width:56%"></span><span class="m" style="width:44%"></span></div>
+          <div class="lg"><span>女性 56%</span><span>男性 44%</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="source">集計：2025年10月14日〜2026年10月13日に来院した患者さん（予約システムの記録から院内で集計。個人が特定される情報は含みません）</p>
+  </div>
+</section>
+
 <section class="dayband">
   <div class="wrap">
     <h2><small>勤務の1日</small>週1日でも、患者さんを担当できます</h2>
@@ -297,7 +388,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
   </div>
 </section>
 
-<section style="padding-top:80px">
+<section>
   <div class="wrap">
     <h2>ここで学べること</h2>
     <div class="learn">
@@ -324,6 +415,21 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
         <li>歯科用CT（CBCT）</li><li>口腔内スキャナ</li><li>院内CAD/CAM</li><li>院内技工士</li><li>マイクロスコープ</li><li>ラバーダム</li><li>ユニット4台</li>
       </ul>
     </div>
+    <div class="equip" style="border-top:none;padding-top:0;margin-top:56px">
+      <h3>院内の様子</h3>
+    </div>
+    <div class="gallery">
+      <figure class="big"><img src="recruit-img/operatory.jpg" alt="診療室" loading="lazy"><figcaption>診療室</figcaption></figure>
+      <figure class="wide"><img src="recruit-img/microscope.jpg" alt="マイクロスコープを使った診療" loading="lazy"><figcaption>マイクロスコープ</figcaption></figure>
+      <figure><img src="recruit-img/ct.jpg" alt="歯科用CT" loading="lazy" style="object-position:50% 30%"><figcaption>歯科用CT</figcaption></figure>
+      <figure><img src="recruit-img/scan.jpg" alt="口腔内スキャナの画像を確認" loading="lazy"><figcaption>口腔内スキャナ</figcaption></figure>
+      <figure class="wide"><img src="recruit-img/technician.jpg" alt="院内技工士の作業" loading="lazy"><figcaption>院内技工士</figcaption></figure>
+      <figure><img src="recruit-img/cadcam.jpg" alt="CAD/CAMの設計" loading="lazy"><figcaption>院内CAD/CAM</figcaption></figure>
+      <figure><img src="recruit-img/hygienist.jpg" alt="衛生士のメインテナンス" loading="lazy"><figcaption>担当衛生士制</figcaption></figure>
+      <figure class="wide"><img src="recruit-img/consult.jpg" alt="カウンセリングルームでの説明" loading="lazy" style="object-position:60% 40%"><figcaption>カウンセリングルーム</figcaption></figure>
+      <figure class="wide"><img src="recruit-img/waiting.jpg" alt="待合室" loading="lazy"><figcaption>待合室</figcaption></figure>
+    </div>
+
   </div>
 </section>
 
@@ -379,6 +485,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
         <p>経験を重ね、タイミングが合えば、一日の診療をお任せすることもあります。</p>
       </div>
     </div>
+    <figure style="margin:28px 0 0"><img src="recruit-img/team.jpg" alt="ライフデンタルクリニックのスタッフ" loading="lazy" style="width:100%;aspect-ratio:3/2;object-fit:cover"></figure>
     <p class="note"><strong>スタッフ。</strong>長く勤めているスタッフと、新しく入ったスタッフが一緒に働く、仲の良い職場です。メインテナンスは担当衛生士制で、衛生士がしっかり支えます。</p>
     <p class="note"><strong>開業を考えている先生へ。</strong>治療計画の立て方から医院の仕組みまで、開いて見せます。開業のときは円満に送り出します。</p>
   </div>
