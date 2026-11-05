@@ -95,23 +95,17 @@ h2 small{display:block;font-family:var(--sans);font-size:13px;font-weight:500;co
 .dayband h2{color:#fff}
 .dayband h2 small{color:#B9C6D4}
 .dayband .lead{color:#D6DEE7}
-.ruler{margin-top:40px}
-.ruler .bar{display:flex;gap:3px;height:64px;align-items:stretch}
-.ruler .slot{flex:1 1 0;background:#4A5C74;border-radius:2px}
-.ruler .slot:nth-child(odd){background:#55697F}
-.ruler .rest{flex:2 1 0;background:transparent;border:1px dashed #6F8299;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#B9C6D4;writing-mode:horizontal-tb}
-.ruler .review{flex:1 1 0;background:var(--gold);border-radius:2px}
-.ruler .ticks{display:flex;justify-content:space-between;margin-top:10px;font-size:12.5px;color:#B9C6D4;font-family:var(--serif)}
-.legend{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13.5px;color:#D6DEE7}
-.legend span{display:inline-flex;align-items:center;gap:8px}
-.legend i{display:inline-block;width:18px;height:12px;border-radius:2px;background:#55697F}
-.legend i.r{background:var(--gold)}
-.legend i.b{background:transparent;border:1px dashed #6F8299}
-.flowlist{margin-top:40px;border-top:1px solid rgba(255,255,255,.18)}
+.day-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+@media(max-width:760px){.day-grid{grid-template-columns:1fr;gap:32px}}
+.oneday{margin:0}
+.oneday img{width:100%;height:auto;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.oneday figcaption{font-size:12px;color:#B9C6D4;margin-top:10px}
+@media(max-width:760px){.oneday{max-width:420px}}
+.flowlist{margin-top:32px;border-top:1px solid rgba(255,255,255,.18)}
 .flowlist div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.18)}
 .flowlist dt{font-family:var(--serif);font-weight:600;color:#fff}
 .flowlist dd{font-size:14.5px;color:#D6DEE7}
-@media(max-width:560px){.flowlist div{grid-template-columns:1fr;gap:2px}.ruler .bar{height:52px}}
+@media(max-width:560px){.flowlist div{grid-template-columns:1fr;gap:2px}}
 
 /* ── learn ── */
 .learn{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:36px 40px}
@@ -296,7 +290,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
     <div class="care">
       <div>
         <h3>時間をかけて聞く</h3>
-        <p>まず、患者さんのご希望をよくうかがいます。全体チェックには60分をかけ、検査と対話の時間を確保しています。</p>
+        <p>まず、患者さんのご希望をよくうかがいます。検査と対話に時間をかけ、何を大切にしたいかを一緒に整理します。</p>
       </div>
       <div>
         <h3>お口全体から考える</h3>
@@ -314,12 +308,12 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
 <section class="numbers">
   <div class="wrap">
     <h2><small>数字で見るライフデンタル</small>親子で長く通う、地域のかかりつけ医です</h2>
-    <p class="lead">どんな患者さんを担当するのかは、働く先生にとって大切な情報です。この1年に来院された方を集計しました。</p>
+    <p class="lead">どんな患者さんを担当するのかは、働く先生にとって大切な情報です。この1年に来院された方の割合をまとめました。</p>
     <div class="kpis">
-      <div class="kpi"><p class="n">1,548<small>人</small></p><p>この1年に来院した患者さん</p></div>
-      <div class="kpi"><p class="n">5.6<small>回</small></p><p>1人あたりの年間来院回数</p></div>
+      <div class="kpi"><p class="n">約30<small>人</small></p><p>1日に来院する患者さん（平均）</p></div>
       <div class="kpi"><p class="n">2007<small>年</small></p><p>開業。地域で約20年</p></div>
-      <div class="kpi"><p class="n">60<small>分</small></p><p>初めての方の全体チェック</p></div>
+      <div class="kpi"><p class="n">4<small>台</small></p><p>ユニット</p></div>
+      <div class="kpi"><p class="n">30<small>分</small></p><p>ドクターの予約1枠</p></div>
     </div>
     <div class="charts">
       <div>
@@ -356,35 +350,25 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
         </div>
       </div>
     </div>
-    <p class="source">集計：2025年10月14日〜2026年10月13日に来院した患者さん（予約システムの記録から院内で集計。個人が特定される情報は含みません）</p>
+    <p class="source">集計：2025年10月〜2026年10月に来院した患者さん（院内の予約記録から集計。個人が特定される情報は含みません）</p>
   </div>
 </section>
 
 <section class="dayband">
-  <div class="wrap">
-    <h2><small>勤務の1日</small>週1日でも、患者さんを担当できます</h2>
-    <p class="lead">予約は1人30分。1日15〜16人ほどを、治療計画から関わる担当医として診ていただきます。一日の最後に、院長とその日の症例を振り返ります。</p>
-    <div class="ruler" role="img" aria-label="9時から18時までの勤務の流れ。30分の予約が並び、途中に休憩1時間、最後に院長との振り返り15分程度。">
-      <div class="bar">
-        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
-        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
-        <span class="rest">休憩</span>
-        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
-        <span class="slot"></span><span class="slot"></span><span class="slot"></span>
-        <span class="review"></span>
-      </div>
-      <div class="ticks"><span>9:00</span><span>18:00</span></div>
+  <div class="wrap day-grid">
+    <div>
+      <h2><small>勤務の1日</small>週1日でも、患者さんを担当できます</h2>
+      <p class="lead">勤務は9:00〜18:00、休憩は1時間です。予約は1人30分で、1日15人ほどを、治療計画から関わる担当医として診ていただきます。</p>
+      <dl class="flowlist">
+        <div><dt>担当の決め方</dt><dd>先生の診療を希望される患者さんと、担当の希望が特にない患者さんの予約を、先生の勤務日に取っていきます。</dd></div>
+        <div><dt>はじめのうち</dt><dd>院長と同じ日に診療し、当院の診療水準と考え方を共有していきます。</dd></div>
+        <div><dt>一日の終わり</dt><dd>最後の予約枠で、院長と15分ほどその日の症例を振り返ります。迷った判断も、根拠を開いて一緒に考えます。18:00に終わります。</dd></div>
+      </dl>
     </div>
-    <div class="legend">
-      <span><i></i>診療（1人30分）</span>
-      <span><i class="b"></i>休憩1時間</span>
-      <span><i class="r"></i>院長との振り返り（15分程度）</span>
-    </div>
-    <dl class="flowlist">
-      <div><dt>担当の決め方</dt><dd>先生の診療を希望される患者さんと、担当の希望が特にない患者さんの予約を、先生の勤務日に取っていきます。</dd></div>
-      <div><dt>勤務日以外</dt><dd>先生がいない日の急な痛みなどは院長が対応し、カルテと申し送りで共有します。</dd></div>
-      <div><dt>診療のあと</dt><dd>15分ほど、院長とその日の症例を振り返ります。迷った判断も、根拠を開いて一緒に考えます。</dd></div>
-    </dl>
+    <figure class="oneday">
+      <a href="recruit-img/oneday.jpg" target="_blank" rel="noopener"><img src="recruit-img/oneday.jpg" width="900" height="2249" loading="lazy" alt="非常勤ドクターのライフデンタルの一日。1 9:00 診療開始、2 午前の診療（予約は1人30分）、3 昼休憩（1時間）、4 午後の診療（CT・口腔内スキャナ・マイクロスコープ、院内技工士や担当衛生士と連携）、5 最後の予約枠で院長と15分ほど振り返り、18:00に終了。"></a>
+      <figcaption>タップすると大きく表示します。お弁当とデスクの写真はイメージです</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -398,7 +382,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
       </div>
       <div>
         <h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>毎回の症例の振り返り</h3>
-        <p>診療後の15分ほど、院長と症例を振り返ります。週1日でも、毎回の診療がそのまま学びになります。</p>
+        <p>一日の最後の15分ほど、院長とその日の症例を振り返ります。週1日でも、毎回の診療がそのまま学びになります。</p>
       </div>
       <div>
         <h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 9v5c0 2 2.5 3.5 5 3.5s5-1.5 5-3.5V9"/></svg>月1回の研修とスタディグループ</h3>
