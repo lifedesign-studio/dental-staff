@@ -159,6 +159,49 @@ h2 small{display:block;font-family:var(--sans);font-size:13px;font-weight:500;co
 .gallery .wide{grid-column:span 2}
 .gallery .big{grid-column:span 2;grid-row:span 2}
 @media(max-width:720px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}.gallery .big{grid-row:span 2}}
+
+/* ── watercolor (painted plates) ── */
+.paint{margin:0;position:relative}
+.paint img{width:100%;height:auto;mix-blend-mode:multiply;filter:saturate(.92)}
+.paint figcaption{font-family:var(--serif);font-size:12.5px;color:var(--sub);letter-spacing:.08em;margin-top:6px}
+.plate{padding:8px 0 0}
+.plate .wrap{max-width:1040px}
+.plate .paint img{aspect-ratio:1024/560;object-fit:cover;object-position:50% 55%}
+.plate .paint figcaption{text-align:right;padding-right:6px}
+.with-paint{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:8px}
+.with-paint.rev .paint{order:2}
+@media(max-width:720px){.with-paint{grid-template-columns:1fr;gap:20px}.with-paint.rev .paint{order:0}}
+.dayband .paint img{mix-blend-mode:normal;border-radius:3px}
+
+/* ── cases ── */
+.cases{background:#1F2734;color:#E4E9EF;padding:96px 0}
+.cases + section{padding-top:80px}
+.cases h2{color:#fff}
+.cases h2 small{color:#AFC0D2}
+.cases .lead{color:#C9D3DE}
+.case{margin-top:56px;display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:center}
+.case.rev{grid-template-columns:1fr 1.55fr}
+.case.rev .ba{order:2}
+@media(max-width:760px){.case,.case.rev{grid-template-columns:1fr;gap:18px}.case.rev .ba{order:0}}
+.case .no{font-family:var(--serif);font-size:13px;letter-spacing:.24em;color:var(--gold)}
+.case h3{font-family:var(--serif);color:#fff;font-size:clamp(19px,2.6vw,22px);margin:6px 0 10px;line-height:1.55}
+.case p{font-size:14.5px;color:#C9D3DE}
+.case .tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.case .tags li{font-size:12px;border:1px solid rgba(255,255,255,.28);color:#DCE3EA;padding:3px 10px;border-radius:2px}
+.ba{position:relative;overflow:hidden;aspect-ratio:3/2;background:#111;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35);touch-action:pan-y;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.ba .bar::after{content:"";position:absolute;top:50%;left:50%;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:rgba(255,255,255,.95) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232E3A4E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-5 6 5 6M15 6l5 6-5 6'/%3E%3C/svg%3E") center/20px no-repeat;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.ba .lbl{position:absolute;top:12px;font-size:11px;letter-spacing:.18em;color:#fff;background:rgba(20,26,35,.55);padding:3px 9px;pointer-events:none}
+.ba .lbl.b{left:12px}.ba .lbl.a{right:12px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba input:focus-visible + .bar{outline:2px solid var(--gold);outline-offset:2px}
+.process{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.process figure{margin:0}
+.process img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:2px}
+.process figcaption{font-size:11.5px;color:#AFC0D2;margin-top:4px}
+.cases .fine{margin-top:56px;font-size:12px;color:#93A3B5;border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
 /* ── salary ── */
 .formula{margin:32px 0 0;background:var(--card);border:1px solid var(--rule);padding:30px 22px;text-align:center}
 .formula .f-label{font-size:13px;color:var(--sub);margin-bottom:12px}
@@ -256,6 +299,12 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
   </div>
 </header>
 
+<div class="plate">
+  <div class="wrap">
+    <figure class="paint"><img src="recruit-img/wc-operatory.jpg" width="1024" height="688" alt="ライフデンタルクリニックの診療室を描いた水彩画"><figcaption>診療室</figcaption></figure>
+  </div>
+</div>
+
 <section>
   <div class="wrap">
     <h2>一緒に働きたい先生</h2>
@@ -286,7 +335,10 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
 <section>
   <div class="wrap">
     <h2><small>診療の考え方</small>ゴールは患者さんが決め、手段はドクターが設計する</h2>
-    <p class="lead">どこまで歯に時間とお金をかけるかは、患者さんが決めます。選ばれたゴールにどの術式・順序で届けるかは、ドクターが根拠を持って設計し、おすすめします。</p>
+    <div class="with-paint">
+      <p class="lead">どこまで歯に時間とお金をかけるかは、患者さんが決めます。選ばれたゴールにどの術式・順序で届けるかは、ドクターが根拠を持って設計し、おすすめします。</p>
+      <figure class="paint"><img src="recruit-img/wc-consult.jpg" width="1024" height="688" loading="lazy" alt="カウンセリングルームで院長が患者さんと話す様子を描いた水彩画"><figcaption>カウンセリングルーム</figcaption></figure>
+    </div>
     <div class="care">
       <div>
         <h3>時間をかけて聞く</h3>
@@ -375,6 +427,10 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
 <section>
   <div class="wrap">
     <h2>ここで学べること</h2>
+    <div class="with-paint rev">
+      <p class="lead">咬合・顎位から全体を組み立てる考え方と、前歯の審美。どちらも、院長の症例のそばで、実際の患者さんを通して身につけていただけます。</p>
+      <figure class="paint"><img src="recruit-img/wc-microscope.jpg" width="1024" height="688" loading="lazy" alt="マイクロスコープで診療する院長を描いた水彩画"><figcaption>マイクロスコープ</figcaption></figure>
+    </div>
     <div class="learn">
       <div>
         <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>咬合・顎位から組み立てる</h3>
@@ -414,6 +470,68 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
       <figure class="wide"><img src="recruit-img/waiting.jpg" alt="待合室" loading="lazy"><figcaption>待合室</figcaption></figure>
     </div>
 
+  </div>
+</section>
+
+<section class="cases" id="cases">
+  <div class="wrap">
+    <h2><small>院長の症例から</small>お口全体の設計と、前歯の審美</h2>
+    <p class="lead">当院で実際に治療した患者さんの写真です。写真の上を左右になぞると、治療前と治療後を見比べられます。</p>
+
+    <div class="case">
+      <div class="ba" style="--pos:50%">
+        <img src="recruit-img/case-a-before.jpg" alt="治療前。古い金属の被せ物と、欠けた歯がある" loading="lazy">
+        <img class="after" src="recruit-img/case-a-after.jpg" alt="治療後。上下の歯並びと咬み合わせが整っている" loading="lazy">
+        <span class="lbl b">BEFORE</span><span class="lbl a">AFTER</span>
+        <input type="range" min="0" max="100" value="50" aria-label="治療前と治療後を見比べる（症例1）">
+        <span class="bar"></span>
+      </div>
+      <div>
+        <p class="no">CASE 01</p>
+        <h3>咬み合わせから、お口全体を立て直す</h3>
+        <p>歯を失った部分にインプラントを入れ、咬み合わせの高さと前歯の形から上下すべてを作り直しました。模型と仮歯で確かめてから、最終の被せ物に進んでいます。</p>
+        <ul class="tags"><li>全顎</li><li>インプラント</li><li>咬合再構成</li></ul>
+      </div>
+    </div>
+
+    <div class="case rev">
+      <div class="ba" style="--pos:50%">
+        <img src="recruit-img/case-b-before.jpg" alt="治療前。上の前歯2本のあいだにすき間がある" loading="lazy">
+        <img class="after" src="recruit-img/case-b-after.jpg" alt="治療後。前歯のすき間が閉じ、形がそろっている" loading="lazy">
+        <span class="lbl b">BEFORE</span><span class="lbl a">AFTER</span>
+        <input type="range" min="0" max="100" value="50" aria-label="治療前と治療後を見比べる（症例2）">
+        <span class="bar"></span>
+      </div>
+      <div>
+        <p class="no">CASE 02</p>
+        <h3>前歯のすき間と形を、設計してから整える</h3>
+        <p>模型の上で理想の形を作り（ワックスアップ）、それをお口の中で試して（モックアップ）、患者さんと形を決めてから仕上げました。</p>
+        <div class="process">
+          <figure><img src="recruit-img/case-b-wax.jpg" alt="模型の上で作った前歯の形" loading="lazy"><figcaption>1 ワックスアップ</figcaption></figure>
+          <figure><img src="recruit-img/case-b-mock.jpg" alt="モックアップ用の型" loading="lazy"><figcaption>2 試すための型</figcaption></figure>
+          <figure><img src="recruit-img/case-b-mockup-mouth.jpg" alt="お口の中で形を試している様子" loading="lazy"><figcaption>3 お口で試す</figcaption></figure>
+        </div>
+        <ul class="tags"><li>前歯</li><li>審美領域</li><li>ワックスアップ</li></ul>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="ba" style="--pos:50%">
+        <img src="recruit-img/case-c-before.jpg" alt="治療前。下の前歯の形と色がそろっていない" loading="lazy">
+        <img class="after" src="recruit-img/case-c-after.jpg" alt="治療後。下の前歯の形と色がそろっている" loading="lazy">
+        <span class="lbl b">BEFORE</span><span class="lbl a">AFTER</span>
+        <input type="range" min="0" max="100" value="50" aria-label="治療前と治療後を見比べる（症例3）">
+        <span class="bar"></span>
+      </div>
+      <div>
+        <p class="no">CASE 03</p>
+        <h3>下の前歯の形と色をそろえる</h3>
+        <p>すり減りや欠けで不ぞろいになった下の前歯を、となりの歯となじむ形と色に整えました。</p>
+        <ul class="tags"><li>前歯</li><li>審美領域</li></ul>
+      </div>
+    </div>
+
+    <p class="fine">掲載している写真は、患者さんの了承を得たものです。治療の結果には個人差があります。</p>
   </div>
 </section>
 
@@ -469,6 +587,7 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
         <p>経験を重ね、タイミングが合えば、一日の診療をお任せすることもあります。</p>
       </div>
     </div>
+    <figure class="paint" style="margin:36px 0 0"><img src="recruit-img/wc-technician.jpg" width="1024" height="688" loading="lazy" alt="院内技工士の作業を描いた水彩画"><figcaption>院内技工士</figcaption></figure>
     <figure style="margin:28px 0 0"><img src="recruit-img/team.jpg" alt="ライフデンタルクリニックのスタッフ" loading="lazy" style="width:100%;aspect-ratio:3/2;object-fit:cover"></figure>
     <p class="note"><strong>スタッフ。</strong>長く勤めているスタッフと、新しく入ったスタッフが一緒に働く、仲の良い職場です。メインテナンスは担当衛生士制で、衛生士がしっかり支えます。</p>
     <p class="note"><strong>開業を考えている先生へ。</strong>治療計画の立て方から医院の仕組みまで、開いて見せます。開業のときは円満に送り出します。</p>
@@ -530,6 +649,12 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
   </div>
 </section>
 
+<div class="plate" style="padding-bottom:24px">
+  <div class="wrap">
+    <figure class="paint"><img src="recruit-img/wc-waiting.jpg" width="1024" height="688" loading="lazy" alt="待合室を描いた水彩画"><figcaption>待合室　見学のときは、ここでお待ちしています</figcaption></figure>
+  </div>
+</div>
+
 <section class="contact" id="contact">
   <div class="wrap inner">
     <h2>見学・応募</h2>
@@ -571,5 +696,11 @@ footer .addr{font-size:12px;margin-top:14px;color:#9FB0C2}
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.ba input').forEach(function(r){
+  var box=r.closest('.ba');
+  r.addEventListener('input',function(){box.style.setProperty('--pos',r.value+'%')});
+});
+</script>
 </body>
 </html>
